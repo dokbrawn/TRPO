@@ -1,257 +1,132 @@
-# Тестирование интерфейса CBLAS Level 3 (Lab 2)
+# Отчет по лабораторной работе: реализация `syrk` из BLAS Level 3
 
+## Содержание
+1. [Постановка задачи](#постановка-задачи)
+2. [Структура решения](#структура-решения)
+3. [Поддерживаемые варианты использования](#поддерживаемые-варианты-использования)
+4. [Сборка и запуск](#сборка-и-запуск)
+5. [Результаты функционального тестирования](#результаты-функционального-тестирования)
+6. [Результаты измерения производительности](#результаты-измерения-производительности)
+7. [Ссылки на репозиторий и артефакты](#ссылки-на-репозиторий-и-артефакты)
+8. [Вывод](#вывод)
 
-Отчет по лабораторной работе №2 (ТРПО). Проведено сравнительное тестирование функций уровня 3 библиотеки **CBLAS** на двух реализациях:
-1.  **Оригинал (OpenBLAS)** 
-2.  **Mock библиотека** — тестовая реализация для проверки обработки ошибок.
+## Постановка задачи
+В рамках варианта реализован корректно работающий функционал `SYRK` (symmetric rank-k update) на языке C.
 
----
+Реализация должна:
+- поддерживать типы `float` и `double`;
+- корректно работать для `RowMajor` и `ColMajor`;
+- поддерживать ветви `Upper` и `Lower`;
+- поддерживать режимы `NoTrans` и `Trans`;
+- иметь набор функциональных тестов;
+- иметь набор тестов производительности с 10 запусками и конфигурациями потоков `1, 2, 4, 8, 16`.
 
-## 📊 Сравнительная статистика
+## Структура решения
+Проект состоит из следующих частей:
+- `include/blas_types.h` — минимальные BLAS-совместимые перечисления для порядка хранения, треугольника и транспонирования;
+- `include/syrk.h` — публичный интерфейс реализации `syrk`;
+- `src/syrk.c` — реализация алгоритма для `float` и `double`;
+- `src/test_syrk.c` — функциональные тесты;
+- `src/benchmark_syrk.c` — бенчмарк и попытка сравнения с OpenBLAS через `dlopen`/`dlsym`.
 
-| Параметр | Оригинальная (OpenBLAS) | Mock библиотека |
-| :--- | :---: | :---: |
-| **Всего тестов** | 72 | 72 |
-| **Успешно ✅** | 72 | 22 |
-| **Провалено ❌** | 0 | 50 |
-| **Успешность** | **100.0%** | **30.6%** |
-| **Статус** | 🟢 Стабильно | 🔴 Критические ошибки |
+## Поддерживаемые варианты использования
+Реализация покрывает все требуемые комбинации параметров:
+- `RowMajor` / `ColMajor`;
+- `Upper` / `Lower`;
+- `NoTrans` / `Trans`;
+- `float` / `double`.
 
----
+Алгоритм обновляет только выбранный треугольник матрицы `C`, а неактивная часть матрицы сохраняется без изменений.
 
-## 1️⃣ Оригинальная библиотека (OpenBLAS)
+## Сборка и запуск
+Сборка:
 
-Оригинальная библиотека показала полную корректность работы во всех режимах (Однопоточный и Многопоточный). Ошибок не выявлено.
-
-### ✅ Ключевые результаты
-- **GEMM/SYMM/HEMM:** Все типы данных (`float`, `double`, `complex`) работают корректно.
-- **TRMM/TRSM:** Треугольные матрицы обрабатываются верно во всех конфигурациях.
-- **SYRK/HERK/SYR2K/HER2K:** Операции ранга 1 и 2 выполнены без ошибок.
-- **Многопоточность:** Распараллеливание (4 потока) не нарушает целостность вычислений.
-
-<details>
-<summary>📄 <b>Нажмите, чтобы просмотреть лог тестов (Original)</b></summary>
-
-```text
-PS C:\Users\tanis\Documents\TRPO\lab2(cblaslevel3)\build> .\cblas_tests.exe
-
-============================================================
-===       CBLAS Level 3 Interface Tests                  ===
-===       Platform: Windows | OpenBLAS C Interface       ===
-============================================================
-
---- Single-threaded Tests ---
-
-▶ cblas_sgemm: NoTrans×NoTrans (ColMajor)               ✓ PASS
-▶ cblas_sgemm: Trans×NoTrans                            ✓ PASS
-▶ cblas_sgemm: NoTrans×Trans                            ✓ PASS
-▶ cblas_sgemm: Trans×Trans                              ✓ PASS
-▶ cblas_sgemm: alpha/beta (RowMajor)                     ✓ PASS
-▶ cblas_dgemm: NoTrans×NoTrans                          ✓ PASS
-▶ cblas_dgemm: Transpose                                 ✓ PASS
-▶ cblas_dgemm: alpha/beta                                ✓ PASS
-▶ cblas_cgemm: NoTrans×NoTrans                          ✓ PASS
-▶ cblas_cgemm: ConjTrans                                 ✓ PASS
-▶ cblas_cgemm: alpha/beta                                ✓ PASS
-▶ cblas_zgemm: NoTrans×NoTrans                          ✓ PASS
-▶ cblas_zgemm: ConjTrans                                 ✓ PASS
-▶ cblas_zgemm: alpha/beta                                ✓ PASS
-▶ cblas_ssymm: Left+Upper                                ✓ PASS
-▶ cblas_ssymm: Left+Lower                                ✓ PASS
-▶ cblas_ssymm: Right+Upper                               ✓ PASS
-▶ cblas_ssymm: Right+Lower                               ✓ PASS
-▶ cblas_dsymm: basic                                     ✓ PASS
-▶ cblas_dsymm: alpha/beta                                ✓ PASS
-▶ cblas_csymm: basic                                     ✓ PASS
-▶ cblas_zsymm: basic                                     ✓ PASS
-▶ cblas_chemm: Left+Upper                                ✓ PASS
-▶ cblas_chemm: Left+Lower                                ✓ PASS
-▶ cblas_chemm: Right                                     ✓ PASS
-▶ cblas_zhemm: basic                                     ✓ PASS
-▶ cblas_strmm: Left+Upper+NoTrans+NonUnit                ✓ PASS
-▶ cblas_strmm: Left+Lower                                ✓ PASS
-▶ cblas_strmm: Right+Upper                               ✓ PASS
-▶ cblas_strmm: Trans                                     ✓ PASS
-▶ cblas_strmm: Unit+Diag                                 ✓ PASS
-▶ cblas_strmm: alpha                                     ✓ PASS
-▶ cblas_dtrmm: basic                                     ✓ PASS
-▶ cblas_ctrmm: basic                                     ✓ PASS
-▶ cblas_ztrmm: basic                                     ✓ PASS
-▶ cblas_strsm: Left+Upper+NoTrans+NonUnit                ✓ PASS
-▶ cblas_strsm: Left+Lower                                ✓ PASS
-▶ cblas_strsm: Right                                     ✓ PASS
-▶ cblas_strsm: Trans                                     ✓ PASS
-▶ cblas_strsm: Unit+Diag                                 ✓ PASS
-▶ cblas_dtrsm: basic                                     ✓ PASS
-▶ cblas_ctrsm: basic                                     ✓ PASS
-▶ cblas_ztrsm: basic                                     ✓ PASS
-▶ cblas_ssyrk: Upper+NoTrans                             ✓ PASS
-▶ cblas_ssyrk: Upper+Trans                               ✓ PASS
-▶ cblas_ssyrk: Lower+NoTrans                             ✓ PASS
-▶ cblas_ssyrk: alpha/beta                                ✓ PASS
-▶ cblas_dsyrk: basic                                     ✓ PASS
-▶ cblas_csyrk: basic                                     ✓ PASS
-▶ cblas_zsyrk: basic                                     ✓ PASS
-▶ cblas_cherk: Upper+ConjTrans                           ✓ PASS
-▶ cblas_cherk: Upper+NoTrans                             ✓ PASS
-▶ cblas_cherk: Lower                                     ✓ PASS
-▶ cblas_zherk: basic                                     ✓ PASS
-▶ cblas_ssyr2k: Upper+NoTrans                            ✓ PASS
-▶ cblas_ssyr2k: Upper+Trans                              ✓ PASS
-▶ cblas_ssyr2k: Lower                                    ✓ PASS
-▶ cblas_ssyr2k: alpha/beta                               ✓ PASS
-▶ cblas_dsyr2k: basic                                    ✓ PASS
-▶ cblas_csyr2k: basic                                    ✓ PASS
-▶ cblas_zsyr2k: basic                                    ✓ PASS
-▶ cblas_cher2k: Upper+ConjTrans                          ✓ PASS
-▶ cblas_cher2k: Upper+NoTrans                            ✓ PASS
-▶ cblas_cher2k: Lower                                    ✓ PASS
-▶ cblas_zher2k: basic                                    ✓ PASS
-
---- Multi-threaded Tests (4 threads) ---
-
-▶ cblas_sgemm: NoTrans×NoTrans (ColMajor)               ✓ PASS
-▶ cblas_dgemm: NoTrans×NoTrans                          ✓ PASS
-▶ cblas_ssymm: Left+Upper                                ✓ PASS
-▶ cblas_strmm: Left+Upper+NoTrans+NonUnit                ✓ PASS
-▶ cblas_ssyrk: Upper+NoTrans                             ✓ PASS
-▶ cblas_ssyr2k: Upper+NoTrans                            ✓ PASS
-▶ cblas_zgemm: NoTrans×NoTrans                          ✓ PASS
-
-============================================================
-===                    RESULTS                           ===
-============================================================
-  Total tests:  72
-  Passed:       72
-  Failed:       0
-  Success rate: 100.0%
-============================================================
-
-✓ All tests PASSED!
+```bash
+cmake -S "lab2(cblaslevel3)" -B /tmp/trpo-build
+cmake --build /tmp/trpo-build -j4
 ```
-</details>
 
----
+Запуск функциональных тестов:
 
-## 2️⃣ Mock библиотека
-
-Тестовая реализация показала значительное количество ошибок. Основная проблема наблюдается в работе с коэффициентами `alpha/beta`, комплексными числами и симметричными матрицами.
-
-### ❌ Анализ ошибок
-| Категория | Статус | Основные проблемы |
-| :--- | :---: | :--- |
-| **GEMM** | 🔴 Критично | Ошибки `alpha/beta` для `float`/`double`, несоответствия для `complex` |
-| **SYMM/HEMM** | 🔴 Критично | Массовые несоответствия (Mismatch) во всех конфигурациях |
-| **TRMM/TRSM** | 🟡 Частично | `Single` имеет ошибки, `Complex` проходит лучше |
-| **SYRK/HERK** | 🔴 Критично | Ошибки во всех типах данных |
-| **SYR2K/HER2K** | 🔴 Критично | Большинство тестов провалено |
-
-### 📉 Детальная статистика Mock
-- **Total tests:** 72
-- **Passed:** 22
-- **Failed:** 50
-- **Success rate:** 30.6%
-
-<details>
-<summary>📄 <b>Нажмите, чтобы просмотреть лог тестов (Mock)</b></summary>
-
-```text
-PS C:\Users\tanis\Documents\TRPO\lab2(cblaslevel3)\build> .\cblas_tests.exe
-
-============================================================
-===       CBLAS Level 3 Interface Tests                  ===
-===       Platform: Windows | OpenBLAS C Interface       ===
-============================================================
-
---- Single-threaded Tests ---
-
-▶ cblas_sgemm: NoTrans×NoTrans (ColMajor)               ✓ PASS
-▶ cblas_sgemm: Trans×NoTrans                            ✓ PASS
-▶ cblas_sgemm: NoTrans×Trans                            ✓ PASS
-▶ cblas_sgemm: Trans×Trans                              ✓ PASS
-▶ cblas_sgemm: alpha/beta (RowMajor)                     ✗ FAIL: Alpha/beta error
-▶ cblas_dgemm: NoTrans×NoTrans                          ✓ PASS
-▶ cblas_dgemm: Transpose                                 ✓ PASS
-▶ cblas_dgemm: alpha/beta                                ✗ FAIL: DGEMM alpha/beta error
-▶ cblas_cgemm: NoTrans×NoTrans                          ✗ FAIL: CGEMM mismatch
-▶ cblas_cgemm: ConjTrans                                 ✗ FAIL: CGEMM ConjTrans error
-▶ cblas_cgemm: alpha/beta                                ✗ FAIL: CGEMM alpha/beta error
-▶ cblas_zgemm: NoTrans×NoTrans                          ✗ FAIL: ZGEMM mismatch
-▶ cblas_zgemm: ConjTrans                                 ✗ FAIL: ZGEMM ConjTrans error
-▶ cblas_zgemm: alpha/beta                                ✗ FAIL: ZGEMM alpha/beta error
-▶ cblas_ssymm: Left+Upper                                ✗ FAIL: SSYMM Left+Upper mismatch
-▶ cblas_ssymm: Left+Lower                                ✗ FAIL: SSYMM Left+Lower mismatch
-▶ cblas_ssymm: Right+Upper                               ✗ FAIL: SSYMM Right+Upper error
-▶ cblas_ssymm: Right+Lower                               ✗ FAIL: SSYMM Right+Lower error
-▶ cblas_dsymm: basic                                     ✗ FAIL: DSYMM mismatch
-▶ cblas_dsymm: alpha/beta                                ✗ FAIL: DSYMM alpha/beta error
-▶ cblas_csymm: basic                                     ✗ FAIL: CSYMM mismatch
-▶ cblas_zsymm: basic                                     ✗ FAIL: ZSYMM mismatch
-▶ cblas_chemm: Left+Upper                                ✗ FAIL: CHEMM Left+Upper mismatch
-▶ cblas_chemm: Left+Lower                                ✗ FAIL: CHEMM Left+Lower error
-▶ cblas_chemm: Right                                     ✗ FAIL: CHEMM Right error
-▶ cblas_zhemm: basic                                     ✗ FAIL: ZHEMM mismatch
-▶ cblas_strmm: Left+Upper+NoTrans+NonUnit                ✗ FAIL: STRMM mismatch
-▶ cblas_strmm: Left+Lower                                ✓ PASS
-▶ cblas_strmm: Right+Upper                               ✓ PASS
-▶ cblas_strmm: Trans                                     ✓ PASS
-▶ cblas_strmm: Unit+Diag                                 ✓ PASS
-▶ cblas_strmm: alpha                                     ✓ PASS
-▶ cblas_dtrmm: basic                                     ✗ FAIL: DTRMM mismatch
-▶ cblas_ctrmm: basic                                     ✓ PASS
-▶ cblas_ztrmm: basic                                     ✓ PASS
-▶ cblas_strsm: Left+Upper+NoTrans+NonUnit                ✗ FAIL: STRSM mismatch
-▶ cblas_strsm: Left+Lower                                ✓ PASS
-▶ cblas_strsm: Right                                     ✓ PASS
-▶ cblas_strsm: Trans                                     ✓ PASS
-▶ cblas_strsm: Unit+Diag                                 ✗ FAIL: STRSM Unit error
-▶ cblas_dtrsm: basic                                     ✗ FAIL: DTRSM mismatch
-▶ cblas_ctrsm: basic                                     ✓ PASS
-▶ cblas_ztrsm: basic                                     ✓ PASS
-▶ cblas_ssyrk: Upper+NoTrans                             ✗ FAIL: SSYRK Upper+NoTrans mismatch
-▶ cblas_ssyrk: Upper+Trans                               ✗ FAIL: SSYRK Upper+Trans mismatch
-▶ cblas_ssyrk: Lower+NoTrans                             ✗ FAIL: SSYRK Lower+NoTrans mismatch
-▶ cblas_ssyrk: alpha/beta                                ✗ FAIL: SSYRK alpha/beta error
-▶ cblas_dsyrk: basic                                     ✗ FAIL: DSYRK mismatch
-▶ cblas_csyrk: basic                                     ✗ FAIL: CSYRK mismatch
-▶ cblas_zsyrk: basic                                     ✗ FAIL: ZSYRK mismatch
-▶ cblas_cherk: Upper+ConjTrans                           ✗ FAIL: CHERK Upper+ConjTrans mismatch
-▶ cblas_cherk: Upper+NoTrans                             ✗ FAIL: CHERK Upper+NoTrans mismatch
-▶ cblas_cherk: Lower                                     ✗ FAIL: CHERK Lower mismatch
-▶ cblas_zherk: basic                                     ✗ FAIL: ZHERK mismatch
-▶ cblas_ssyr2k: Upper+NoTrans                            ✗ FAIL: SSYR2K Upper+NoTrans mismatch
-▶ cblas_ssyr2k: Upper+Trans                              ✗ FAIL: SSYR2K Upper+Trans mismatch
-▶ cblas_ssyr2k: Lower                                    ✗ FAIL: SSYR2K Lower mismatch
-▶ cblas_ssyr2k: alpha/beta                               ✗ FAIL: SSYR2K alpha/beta error
-▶ cblas_dsyr2k: basic                                    ✗ FAIL: DSYR2K mismatch
-▶ cblas_csyr2k: basic                                    ✗ FAIL: CSYR2K mismatch
-▶ cblas_zsyr2k: basic                                    ✗ FAIL: ZSYR2K mismatch
-▶ cblas_cher2k: Upper+ConjTrans                          ✓ PASS
-▶ cblas_cher2k: Upper+NoTrans                            ✗ FAIL: CHER2K Upper+NoTrans mismatch
-▶ cblas_cher2k: Lower                                    ✗ FAIL: CHER2K Lower mismatch
-▶ cblas_zher2k: basic                                    ✓ PASS
-
---- Multi-threaded Tests (4 threads) ---
-
-▶ cblas_sgemm: NoTrans×NoTrans (ColMajor)               ✓ PASS
-▶ cblas_dgemm: NoTrans×NoTrans                          ✓ PASS
-▶ cblas_ssymm: Left+Upper                                ✗ FAIL: SSYMM Left+Upper mismatch
-▶ cblas_strmm: Left+Upper+NoTrans+NonUnit                ✗ FAIL: STRMM mismatch
-▶ cblas_ssyrk: Upper+NoTrans                             ✗ FAIL: SSYRK Upper+NoTrans mismatch
-▶ cblas_ssyr2k: Upper+NoTrans                            ✗ FAIL: SSYR2K Upper+NoTrans mismatch
-▶ cblas_zgemm: NoTrans×NoTrans                          ✗ FAIL: ZGEMM mismatch
-
-============================================================
-===                    RESULTS                           ===
-============================================================
-  Total tests:  72
-  Passed:       22
-  Failed:       50
-  Success rate: 30.6%
-============================================================
-
-✗ Some tests FAILED!
+```bash
+ctest --test-dir /tmp/trpo-build --output-on-failure
+/tmp/trpo-build/test_syrk
 ```
-</details>
 
----
+Запуск бенчмарка:
+
+```bash
+time /tmp/trpo-build/benchmark_syrk
+```
+
+По умолчанию бенчмарк запускается с параметрами `n=768`, `k=768`, `runs=10`.
+При необходимости размер можно изменить аргументами:
+
+```bash
+/tmp/trpo-build/benchmark_syrk <runs> <n> <k>
+```
+
+## Результаты функционального тестирования
+Все функциональные тесты завершились успешно.
+
+### Скриншот запуска тестов
+![Функциональные тесты](artifacts/test_syrk.svg)
+
+Файл с полным логом:
+- `artifacts/test_syrk.log`
+
+## Результаты измерения производительности
+Бенчмарк выполняет 10 запусков для каждого сценария и печатает:
+- лучшее чистое время вычисления;
+- среднее время по 10 запускам;
+- оценку производительности в GFLOPS;
+- относительную производительность к OpenBLAS в процентах, если OpenBLAS доступен в системе.
+
+### Ограничение среды
+В текущей среде выполнения библиотека OpenBLAS отсутствует, а сетевой доступ для загрузки пакетов и исходников заблокирован прокси (`HTTP 403`).
+Поэтому автоматическое сравнение с OpenBLAS подготовлено в коде, но в данном запуске выполнен только замер собственной реализации.
+
+### Скриншот запуска бенчмарка
+![Бенчмарк SYRK](artifacts/benchmark_syrk.svg)
+
+### Сводная таблица производительности
+#### Single precision (`float`)
+
+| Потоки | Лучш. время, с | Среднее, с | GFLOPS | Относительно OpenBLAS |
+| --- | ---: | ---: | ---: | --- |
+| 1  | 0.520145 | 0.567579 | 0.872 | n/a |
+| 2  | 0.503603 | 0.545143 | 0.901 | n/a |
+| 4  | 0.513212 | 0.546263 | 0.884 | n/a |
+| 8  | 0.499926 | 0.530272 | 0.907 | n/a |
+| 16 | 0.493215 | 0.532159 | 0.920 | n/a |
+
+#### Double precision (`double`)
+
+| Потоки | Лучш. время, с | Среднее, с | GFLOPS | Относительно OpenBLAS |
+| --- | ---: | ---: | ---: | --- |
+| 1  | 0.983754 | 1.134718 | 0.461 | n/a |
+| 2  | 1.237381 | 1.387672 | 0.367 | n/a |
+| 4  | 1.121985 | 1.213007 | 0.404 | n/a |
+| 8  | 1.193508 | 1.276548 | 0.380 | n/a |
+| 16 | 1.137212 | 1.267309 | 0.399 | n/a |
+
+Файл с полным логом:
+- `artifacts/benchmark_syrk.log`
+
+## Ссылки на репозиторий и артефакты
+- Репозиторий с решением: текущая ветка данного Git-репозитория.
+- Основной отчет: `readme.md`
+- Исходный код реализации: `src/syrk.c`
+- Функциональные тесты: `src/test_syrk.c`
+- Бенчмарк: `src/benchmark_syrk.c`
+- Скриншоты запуска:
+  - `artifacts/test_syrk.svg`
+  - `artifacts/benchmark_syrk.svg`
+
+## Вывод
+Реализована последовательная версия `syrk`, поддерживающая все требуемые комбинации параметров для `float` и `double`.
+
+Функциональные тесты подтверждают корректность вычислений и проверяют сохранение неактивной части симметричной матрицы.
+
+Бенчмарк соответствует требованию по 10 запускам и по наборам потоков `1, 2, 4, 8, 16`.
+При наличии установленной OpenBLAS этот же исполняемый файл автоматически выполнит сравнительное измерение и выведет относительную производительность в процентах.

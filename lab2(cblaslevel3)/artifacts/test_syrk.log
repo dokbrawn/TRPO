@@ -1,0 +1,12 @@
+SYRK functional test suite
+[PASS] validation rules
+[PASS] float col-major upper no-trans
+[PASS] float col-major lower trans
+[PASS] float row-major upper no-trans
+[PASS] float row-major lower trans
+[PASS] double col-major upper no-trans
+[PASS] double col-major lower trans
+[PASS] double row-major upper no-trans
+[PASS] double row-major lower trans
+
+Total: 9, failed: 0
