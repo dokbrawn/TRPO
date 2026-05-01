@@ -1,4 +1,3 @@
-```markdown
 # Лабораторная работа №10  
 ## Docker — создание образов и запуск контейнеров
 
@@ -6,22 +5,19 @@
 **Группа:** [Ваша группа]  
 **Дата:** 01 мая 2026 г.
 
----
 
 ### Цель лабораторной работы
 
 Изучить основы работы с Docker: создание Docker-образов с помощью Dockerfile, запуск контейнеров, проброс портов, а также управление образами и контейнерами.
 
----
 
 ## Часть 1. Работа с Node.js приложением (psweb)
 
 ### 1.1 Клонирование проекта
 
-```bash
+
 git clone https://github.com/nigelpoulton/psweb.git
 cd psweb
-```
 
 **Что делает команда:**  
 `git clone` скачивает исходный код веб-приложения с GitHub в локальную папку `psweb`.
@@ -31,9 +27,7 @@ cd psweb
 
 ### 1.2 Сборка Docker-образа
 
-```bash
 docker build -t example:latest .
-```
 
 **Что делает команда:**  
 Создаёт Docker-образ на основе инструкций из файла `Dockerfile`, находящегося в текущей директории.
@@ -47,9 +41,7 @@ docker build -t example:latest .
 
 ### 1.3 Просмотр списка образов
 
-```bash
 docker images
-```
 
 **Что делает команда:**  
 Выводит список всех Docker-образов, хранящихся на компьютере.
@@ -59,9 +51,8 @@ docker images
 
 ### 1.4 Запуск контейнера
 
-```bash
 docker run -d --name web -p 8081:8080 example:latest
-```
+
 
 **Что делает команда:**  
 Запускает новый контейнер из созданного образа `example:latest`.
@@ -77,9 +68,7 @@ docker run -d --name web -p 8081:8080 example:latest
 
 ### 1.5 Просмотр запущенных контейнеров
 
-```bash
 docker ps
-```
 
 **Что делает команда:**  
 Показывает список всех **активных** (работающих) контейнеров.
@@ -96,9 +85,7 @@ docker ps
 
 ### 1.7 Остановка и удаление ресурсов
 
-```bash
 docker rm -f web && docker rmi example:latest
-```
 
 **Что делают команды:**
 - `docker rm -f web` — принудительно останавливает и удаляет контейнер `web`
@@ -107,17 +94,14 @@ docker rm -f web && docker rmi example:latest
 **Скриншот 7:** Очистка ресурсов Node.js части  
 ![Очистка example](screenshots/cleanup.png)
 
----
 
 ## Часть 2. R Shiny приложение (Hex Memory Game)
 
 ### 2.1 Клонирование проекта
 
-```bash
 cd ..
 git clone https://github.com/dreamRs/memory-hex.git
 cd memory-hex
-```
 
 **Что делает команда:**  
 Скачивает проект интерактивной игры на R Shiny.
@@ -132,9 +116,7 @@ cd memory-hex
 
 ### 2.3 Сборка образа Shiny-приложения
 
-```bash
 docker build -t ggweb:latest .
-```
 
 **Что делает команда:**  
 Собирает Docker-образ `ggweb:latest` на основе Dockerfile проекта memory-hex (включая установку R-пакетов).
@@ -144,9 +126,7 @@ docker build -t ggweb:latest .
 
 ### 2.4 Запуск контейнера Shiny-приложения
 
-```bash
 docker run -d --name web2 -p 8082:3838 ggweb:latest
-```
 
 **Что делает команда:**  
 Запускает контейнер из образа `ggweb:latest` в фоновом режиме.
@@ -161,9 +141,7 @@ docker run -d --name web2 -p 8082:3838 ggweb:latest
 
 ### 2.5 Просмотр запущенных контейнеров
 
-```bash
 docker ps
-```
 
 **Что делает команда:**  
 Отображает список работающих контейнеров (включая `web2`).
@@ -180,9 +158,7 @@ docker ps
 
 ### 2.7 Очистка ресурсов Shiny-приложения
 
-```bash
 docker rm -f web2 && docker rmi ggweb:latest
-```
 
 **Что делают команды:**
 - `docker rm -f web2` — принудительно удаляет контейнер `web2`
@@ -191,7 +167,6 @@ docker rm -f web2 && docker rmi ggweb:latest
 **Скриншот 14:** Очистка ресурсов Shiny-приложения  
 ![Очистка ggweb](screenshots/cleanup-web2.png)
 
----
 
 ## Итоги и выводы
 
@@ -217,7 +192,6 @@ docker rm -f web2 && docker rmi ggweb:latest
 - Конфликт портов (8080 был занят) → использовали порт **8081**
 - Долгая сборка образа `ggweb:latest` — нормальное явление из-за установки R-пакетов
 
----
 
 ## Структура папки lab10
 
@@ -241,4 +215,3 @@ lab10/
     ├── docker-ps-web2.png
     ├── shiny-app.png
     └── cleanup-web2.png
-```
