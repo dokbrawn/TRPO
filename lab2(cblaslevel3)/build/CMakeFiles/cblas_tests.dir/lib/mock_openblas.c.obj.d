@@ -1,5 +1,5 @@
 CMakeFiles/cblas_tests.dir/lib/mock_openblas.c.obj: \
- C:\Users\tanis\Documents\cblas_level3_tests\lib\mock_openblas.c \
+ C:\Users\tanis\Documents\TRPO\lab2(cblaslevel3)\lib\mock_openblas.c \
  C:/OpenBLAS/include/cblas.h \
  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/stddef.h \
  C:/mingw64/x86_64-w64-mingw32/include/stddef.h \

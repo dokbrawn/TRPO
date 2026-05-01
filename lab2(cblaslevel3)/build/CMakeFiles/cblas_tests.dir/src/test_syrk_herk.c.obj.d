@@ -1,6 +1,6 @@
 CMakeFiles/cblas_tests.dir/src/test_syrk_herk.c.obj: \
- C:\Users\tanis\Documents\cblas_level3_tests\src\test_syrk_herk.c \
- C:/Users/tanis/Documents/cblas_level3_tests/include/test_utils.h \
+ C:\Users\tanis\Documents\TRPO\lab2(cblaslevel3)\src\test_syrk_herk.c \
+ C:/Users/tanis/Documents/TRPO/lab2(cblaslevel3)/include/test_utils.h \
  C:/mingw64/x86_64-w64-mingw32/include/stdio.h \
  C:/mingw64/x86_64-w64-mingw32/include/corecrt_stdio_config.h \
  C:/mingw64/x86_64-w64-mingw32/include/corecrt.h \

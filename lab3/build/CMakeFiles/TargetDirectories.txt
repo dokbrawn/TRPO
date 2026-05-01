@@ -1,0 +1,4 @@
+C:/Users/tanis/Documents/TRPO/lab3/build/CMakeFiles/syrc_tests.dir
+C:/Users/tanis/Documents/TRPO/lab3/build/CMakeFiles/syrc_benchmark.dir
+C:/Users/tanis/Documents/TRPO/lab3/build/CMakeFiles/ALL_BUILD.dir
+C:/Users/tanis/Documents/TRPO/lab3/build/CMakeFiles/ZERO_CHECK.dir

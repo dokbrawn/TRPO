@@ -1,4 +1,4 @@
-C:/Users/tanis/Documents/cblas_level3_tests/build/CMakeFiles/cblas_tests.dir
-C:/Users/tanis/Documents/cblas_level3_tests/build/CMakeFiles/test.dir
-C:/Users/tanis/Documents/cblas_level3_tests/build/CMakeFiles/edit_cache.dir
-C:/Users/tanis/Documents/cblas_level3_tests/build/CMakeFiles/rebuild_cache.dir
+C:/Users/tanis/Documents/TRPO/lab2(cblaslevel3)/build/CMakeFiles/cblas_tests.dir
+C:/Users/tanis/Documents/TRPO/lab2(cblaslevel3)/build/CMakeFiles/test.dir
+C:/Users/tanis/Documents/TRPO/lab2(cblaslevel3)/build/CMakeFiles/edit_cache.dir
+C:/Users/tanis/Documents/TRPO/lab2(cblaslevel3)/build/CMakeFiles/rebuild_cache.dir

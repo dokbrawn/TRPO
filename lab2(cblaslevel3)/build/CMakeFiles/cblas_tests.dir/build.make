@@ -52,10 +52,10 @@ RM = C:\mingw64\bin\cmake.exe -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = C:\Users\tanis\Documents\cblas_level3_tests
+CMAKE_SOURCE_DIR = C:\Users\tanis\Documents\TRPO\lab2(cblaslevel3)
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = C:\Users\tanis\Documents\cblas_level3_tests\build
+CMAKE_BINARY_DIR = C:\Users\tanis\Documents\TRPO\lab2(cblaslevel3)\build
 
 # Include any dependencies generated for this target.
 include CMakeFiles/cblas_tests.dir/depend.make
@@ -73,108 +73,108 @@ CMakeFiles/cblas_tests.dir/codegen:
 
 CMakeFiles/cblas_tests.dir/src/main.c.obj: CMakeFiles/cblas_tests.dir/flags.make
 CMakeFiles/cblas_tests.dir/src/main.c.obj: CMakeFiles/cblas_tests.dir/includes_C.rsp
-CMakeFiles/cblas_tests.dir/src/main.c.obj: C:/Users/tanis/Documents/cblas_level3_tests/src/main.c
+CMakeFiles/cblas_tests.dir/src/main.c.obj: C:/Users/tanis/Documents/TRPO/lab2(cblaslevel3)/src/main.c
 CMakeFiles/cblas_tests.dir/src/main.c.obj: CMakeFiles/cblas_tests.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\tanis\Documents\cblas_level3_tests\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/cblas_tests.dir/src/main.c.obj"
-	C:\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/cblas_tests.dir/src/main.c.obj -MF CMakeFiles\cblas_tests.dir\src\main.c.obj.d -o CMakeFiles\cblas_tests.dir\src\main.c.obj -c C:\Users\tanis\Documents\cblas_level3_tests\src\main.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\tanis\Documents\TRPO\lab2(cblaslevel3)\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/cblas_tests.dir/src/main.c.obj"
+	C:\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/cblas_tests.dir/src/main.c.obj -MF CMakeFiles\cblas_tests.dir\src\main.c.obj.d -o CMakeFiles\cblas_tests.dir\src\main.c.obj -c C:\Users\tanis\Documents\TRPO\lab2(cblaslevel3)\src\main.c
 
 CMakeFiles/cblas_tests.dir/src/main.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/cblas_tests.dir/src/main.c.i"
-	C:\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E C:\Users\tanis\Documents\cblas_level3_tests\src\main.c > CMakeFiles\cblas_tests.dir\src\main.c.i
+	C:\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E C:\Users\tanis\Documents\TRPO\lab2(cblaslevel3)\src\main.c > CMakeFiles\cblas_tests.dir\src\main.c.i
 
 CMakeFiles/cblas_tests.dir/src/main.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/cblas_tests.dir/src/main.c.s"
-	C:\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\Users\tanis\Documents\cblas_level3_tests\src\main.c -o CMakeFiles\cblas_tests.dir\src\main.c.s
+	C:\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\Users\tanis\Documents\TRPO\lab2(cblaslevel3)\src\main.c -o CMakeFiles\cblas_tests.dir\src\main.c.s
 
 CMakeFiles/cblas_tests.dir/src/test_gemm.c.obj: CMakeFiles/cblas_tests.dir/flags.make
 CMakeFiles/cblas_tests.dir/src/test_gemm.c.obj: CMakeFiles/cblas_tests.dir/includes_C.rsp
-CMakeFiles/cblas_tests.dir/src/test_gemm.c.obj: C:/Users/tanis/Documents/cblas_level3_tests/src/test_gemm.c
+CMakeFiles/cblas_tests.dir/src/test_gemm.c.obj: C:/Users/tanis/Documents/TRPO/lab2(cblaslevel3)/src/test_gemm.c
 CMakeFiles/cblas_tests.dir/src/test_gemm.c.obj: CMakeFiles/cblas_tests.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\tanis\Documents\cblas_level3_tests\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/cblas_tests.dir/src/test_gemm.c.obj"
-	C:\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/cblas_tests.dir/src/test_gemm.c.obj -MF CMakeFiles\cblas_tests.dir\src\test_gemm.c.obj.d -o CMakeFiles\cblas_tests.dir\src\test_gemm.c.obj -c C:\Users\tanis\Documents\cblas_level3_tests\src\test_gemm.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\tanis\Documents\TRPO\lab2(cblaslevel3)\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/cblas_tests.dir/src/test_gemm.c.obj"
+	C:\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/cblas_tests.dir/src/test_gemm.c.obj -MF CMakeFiles\cblas_tests.dir\src\test_gemm.c.obj.d -o CMakeFiles\cblas_tests.dir\src\test_gemm.c.obj -c C:\Users\tanis\Documents\TRPO\lab2(cblaslevel3)\src\test_gemm.c
 
 CMakeFiles/cblas_tests.dir/src/test_gemm.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/cblas_tests.dir/src/test_gemm.c.i"
-	C:\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E C:\Users\tanis\Documents\cblas_level3_tests\src\test_gemm.c > CMakeFiles\cblas_tests.dir\src\test_gemm.c.i
+	C:\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E C:\Users\tanis\Documents\TRPO\lab2(cblaslevel3)\src\test_gemm.c > CMakeFiles\cblas_tests.dir\src\test_gemm.c.i
 
 CMakeFiles/cblas_tests.dir/src/test_gemm.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/cblas_tests.dir/src/test_gemm.c.s"
-	C:\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\Users\tanis\Documents\cblas_level3_tests\src\test_gemm.c -o CMakeFiles\cblas_tests.dir\src\test_gemm.c.s
+	C:\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\Users\tanis\Documents\TRPO\lab2(cblaslevel3)\src\test_gemm.c -o CMakeFiles\cblas_tests.dir\src\test_gemm.c.s
 
 CMakeFiles/cblas_tests.dir/src/test_symm_hemm.c.obj: CMakeFiles/cblas_tests.dir/flags.make
 CMakeFiles/cblas_tests.dir/src/test_symm_hemm.c.obj: CMakeFiles/cblas_tests.dir/includes_C.rsp
-CMakeFiles/cblas_tests.dir/src/test_symm_hemm.c.obj: C:/Users/tanis/Documents/cblas_level3_tests/src/test_symm_hemm.c
+CMakeFiles/cblas_tests.dir/src/test_symm_hemm.c.obj: C:/Users/tanis/Documents/TRPO/lab2(cblaslevel3)/src/test_symm_hemm.c
 CMakeFiles/cblas_tests.dir/src/test_symm_hemm.c.obj: CMakeFiles/cblas_tests.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\tanis\Documents\cblas_level3_tests\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building C object CMakeFiles/cblas_tests.dir/src/test_symm_hemm.c.obj"
-	C:\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/cblas_tests.dir/src/test_symm_hemm.c.obj -MF CMakeFiles\cblas_tests.dir\src\test_symm_hemm.c.obj.d -o CMakeFiles\cblas_tests.dir\src\test_symm_hemm.c.obj -c C:\Users\tanis\Documents\cblas_level3_tests\src\test_symm_hemm.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\tanis\Documents\TRPO\lab2(cblaslevel3)\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building C object CMakeFiles/cblas_tests.dir/src/test_symm_hemm.c.obj"
+	C:\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/cblas_tests.dir/src/test_symm_hemm.c.obj -MF CMakeFiles\cblas_tests.dir\src\test_symm_hemm.c.obj.d -o CMakeFiles\cblas_tests.dir\src\test_symm_hemm.c.obj -c C:\Users\tanis\Documents\TRPO\lab2(cblaslevel3)\src\test_symm_hemm.c
 
 CMakeFiles/cblas_tests.dir/src/test_symm_hemm.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/cblas_tests.dir/src/test_symm_hemm.c.i"
-	C:\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E C:\Users\tanis\Documents\cblas_level3_tests\src\test_symm_hemm.c > CMakeFiles\cblas_tests.dir\src\test_symm_hemm.c.i
+	C:\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E C:\Users\tanis\Documents\TRPO\lab2(cblaslevel3)\src\test_symm_hemm.c > CMakeFiles\cblas_tests.dir\src\test_symm_hemm.c.i
 
 CMakeFiles/cblas_tests.dir/src/test_symm_hemm.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/cblas_tests.dir/src/test_symm_hemm.c.s"
-	C:\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\Users\tanis\Documents\cblas_level3_tests\src\test_symm_hemm.c -o CMakeFiles\cblas_tests.dir\src\test_symm_hemm.c.s
+	C:\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\Users\tanis\Documents\TRPO\lab2(cblaslevel3)\src\test_symm_hemm.c -o CMakeFiles\cblas_tests.dir\src\test_symm_hemm.c.s
 
 CMakeFiles/cblas_tests.dir/src/test_trmm_trsm.c.obj: CMakeFiles/cblas_tests.dir/flags.make
 CMakeFiles/cblas_tests.dir/src/test_trmm_trsm.c.obj: CMakeFiles/cblas_tests.dir/includes_C.rsp
-CMakeFiles/cblas_tests.dir/src/test_trmm_trsm.c.obj: C:/Users/tanis/Documents/cblas_level3_tests/src/test_trmm_trsm.c
+CMakeFiles/cblas_tests.dir/src/test_trmm_trsm.c.obj: C:/Users/tanis/Documents/TRPO/lab2(cblaslevel3)/src/test_trmm_trsm.c
 CMakeFiles/cblas_tests.dir/src/test_trmm_trsm.c.obj: CMakeFiles/cblas_tests.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\tanis\Documents\cblas_level3_tests\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building C object CMakeFiles/cblas_tests.dir/src/test_trmm_trsm.c.obj"
-	C:\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/cblas_tests.dir/src/test_trmm_trsm.c.obj -MF CMakeFiles\cblas_tests.dir\src\test_trmm_trsm.c.obj.d -o CMakeFiles\cblas_tests.dir\src\test_trmm_trsm.c.obj -c C:\Users\tanis\Documents\cblas_level3_tests\src\test_trmm_trsm.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\tanis\Documents\TRPO\lab2(cblaslevel3)\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building C object CMakeFiles/cblas_tests.dir/src/test_trmm_trsm.c.obj"
+	C:\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/cblas_tests.dir/src/test_trmm_trsm.c.obj -MF CMakeFiles\cblas_tests.dir\src\test_trmm_trsm.c.obj.d -o CMakeFiles\cblas_tests.dir\src\test_trmm_trsm.c.obj -c C:\Users\tanis\Documents\TRPO\lab2(cblaslevel3)\src\test_trmm_trsm.c
 
 CMakeFiles/cblas_tests.dir/src/test_trmm_trsm.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/cblas_tests.dir/src/test_trmm_trsm.c.i"
-	C:\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E C:\Users\tanis\Documents\cblas_level3_tests\src\test_trmm_trsm.c > CMakeFiles\cblas_tests.dir\src\test_trmm_trsm.c.i
+	C:\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E C:\Users\tanis\Documents\TRPO\lab2(cblaslevel3)\src\test_trmm_trsm.c > CMakeFiles\cblas_tests.dir\src\test_trmm_trsm.c.i
 
 CMakeFiles/cblas_tests.dir/src/test_trmm_trsm.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/cblas_tests.dir/src/test_trmm_trsm.c.s"
-	C:\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\Users\tanis\Documents\cblas_level3_tests\src\test_trmm_trsm.c -o CMakeFiles\cblas_tests.dir\src\test_trmm_trsm.c.s
+	C:\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\Users\tanis\Documents\TRPO\lab2(cblaslevel3)\src\test_trmm_trsm.c -o CMakeFiles\cblas_tests.dir\src\test_trmm_trsm.c.s
 
 CMakeFiles/cblas_tests.dir/src/test_syrk_herk.c.obj: CMakeFiles/cblas_tests.dir/flags.make
 CMakeFiles/cblas_tests.dir/src/test_syrk_herk.c.obj: CMakeFiles/cblas_tests.dir/includes_C.rsp
-CMakeFiles/cblas_tests.dir/src/test_syrk_herk.c.obj: C:/Users/tanis/Documents/cblas_level3_tests/src/test_syrk_herk.c
+CMakeFiles/cblas_tests.dir/src/test_syrk_herk.c.obj: C:/Users/tanis/Documents/TRPO/lab2(cblaslevel3)/src/test_syrk_herk.c
 CMakeFiles/cblas_tests.dir/src/test_syrk_herk.c.obj: CMakeFiles/cblas_tests.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\tanis\Documents\cblas_level3_tests\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building C object CMakeFiles/cblas_tests.dir/src/test_syrk_herk.c.obj"
-	C:\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/cblas_tests.dir/src/test_syrk_herk.c.obj -MF CMakeFiles\cblas_tests.dir\src\test_syrk_herk.c.obj.d -o CMakeFiles\cblas_tests.dir\src\test_syrk_herk.c.obj -c C:\Users\tanis\Documents\cblas_level3_tests\src\test_syrk_herk.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\tanis\Documents\TRPO\lab2(cblaslevel3)\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building C object CMakeFiles/cblas_tests.dir/src/test_syrk_herk.c.obj"
+	C:\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/cblas_tests.dir/src/test_syrk_herk.c.obj -MF CMakeFiles\cblas_tests.dir\src\test_syrk_herk.c.obj.d -o CMakeFiles\cblas_tests.dir\src\test_syrk_herk.c.obj -c C:\Users\tanis\Documents\TRPO\lab2(cblaslevel3)\src\test_syrk_herk.c
 
 CMakeFiles/cblas_tests.dir/src/test_syrk_herk.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/cblas_tests.dir/src/test_syrk_herk.c.i"
-	C:\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E C:\Users\tanis\Documents\cblas_level3_tests\src\test_syrk_herk.c > CMakeFiles\cblas_tests.dir\src\test_syrk_herk.c.i
+	C:\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E C:\Users\tanis\Documents\TRPO\lab2(cblaslevel3)\src\test_syrk_herk.c > CMakeFiles\cblas_tests.dir\src\test_syrk_herk.c.i
 
 CMakeFiles/cblas_tests.dir/src/test_syrk_herk.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/cblas_tests.dir/src/test_syrk_herk.c.s"
-	C:\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\Users\tanis\Documents\cblas_level3_tests\src\test_syrk_herk.c -o CMakeFiles\cblas_tests.dir\src\test_syrk_herk.c.s
+	C:\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\Users\tanis\Documents\TRPO\lab2(cblaslevel3)\src\test_syrk_herk.c -o CMakeFiles\cblas_tests.dir\src\test_syrk_herk.c.s
 
 CMakeFiles/cblas_tests.dir/src/test_syr2k_her2k.c.obj: CMakeFiles/cblas_tests.dir/flags.make
 CMakeFiles/cblas_tests.dir/src/test_syr2k_her2k.c.obj: CMakeFiles/cblas_tests.dir/includes_C.rsp
-CMakeFiles/cblas_tests.dir/src/test_syr2k_her2k.c.obj: C:/Users/tanis/Documents/cblas_level3_tests/src/test_syr2k_her2k.c
+CMakeFiles/cblas_tests.dir/src/test_syr2k_her2k.c.obj: C:/Users/tanis/Documents/TRPO/lab2(cblaslevel3)/src/test_syr2k_her2k.c
 CMakeFiles/cblas_tests.dir/src/test_syr2k_her2k.c.obj: CMakeFiles/cblas_tests.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\tanis\Documents\cblas_level3_tests\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building C object CMakeFiles/cblas_tests.dir/src/test_syr2k_her2k.c.obj"
-	C:\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/cblas_tests.dir/src/test_syr2k_her2k.c.obj -MF CMakeFiles\cblas_tests.dir\src\test_syr2k_her2k.c.obj.d -o CMakeFiles\cblas_tests.dir\src\test_syr2k_her2k.c.obj -c C:\Users\tanis\Documents\cblas_level3_tests\src\test_syr2k_her2k.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\tanis\Documents\TRPO\lab2(cblaslevel3)\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building C object CMakeFiles/cblas_tests.dir/src/test_syr2k_her2k.c.obj"
+	C:\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/cblas_tests.dir/src/test_syr2k_her2k.c.obj -MF CMakeFiles\cblas_tests.dir\src\test_syr2k_her2k.c.obj.d -o CMakeFiles\cblas_tests.dir\src\test_syr2k_her2k.c.obj -c C:\Users\tanis\Documents\TRPO\lab2(cblaslevel3)\src\test_syr2k_her2k.c
 
 CMakeFiles/cblas_tests.dir/src/test_syr2k_her2k.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/cblas_tests.dir/src/test_syr2k_her2k.c.i"
-	C:\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E C:\Users\tanis\Documents\cblas_level3_tests\src\test_syr2k_her2k.c > CMakeFiles\cblas_tests.dir\src\test_syr2k_her2k.c.i
+	C:\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E C:\Users\tanis\Documents\TRPO\lab2(cblaslevel3)\src\test_syr2k_her2k.c > CMakeFiles\cblas_tests.dir\src\test_syr2k_her2k.c.i
 
 CMakeFiles/cblas_tests.dir/src/test_syr2k_her2k.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/cblas_tests.dir/src/test_syr2k_her2k.c.s"
-	C:\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\Users\tanis\Documents\cblas_level3_tests\src\test_syr2k_her2k.c -o CMakeFiles\cblas_tests.dir\src\test_syr2k_her2k.c.s
+	C:\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\Users\tanis\Documents\TRPO\lab2(cblaslevel3)\src\test_syr2k_her2k.c -o CMakeFiles\cblas_tests.dir\src\test_syr2k_her2k.c.s
 
 CMakeFiles/cblas_tests.dir/lib/mock_openblas.c.obj: CMakeFiles/cblas_tests.dir/flags.make
 CMakeFiles/cblas_tests.dir/lib/mock_openblas.c.obj: CMakeFiles/cblas_tests.dir/includes_C.rsp
-CMakeFiles/cblas_tests.dir/lib/mock_openblas.c.obj: C:/Users/tanis/Documents/cblas_level3_tests/lib/mock_openblas.c
+CMakeFiles/cblas_tests.dir/lib/mock_openblas.c.obj: C:/Users/tanis/Documents/TRPO/lab2(cblaslevel3)/lib/mock_openblas.c
 CMakeFiles/cblas_tests.dir/lib/mock_openblas.c.obj: CMakeFiles/cblas_tests.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\tanis\Documents\cblas_level3_tests\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building C object CMakeFiles/cblas_tests.dir/lib/mock_openblas.c.obj"
-	C:\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/cblas_tests.dir/lib/mock_openblas.c.obj -MF CMakeFiles\cblas_tests.dir\lib\mock_openblas.c.obj.d -o CMakeFiles\cblas_tests.dir\lib\mock_openblas.c.obj -c C:\Users\tanis\Documents\cblas_level3_tests\lib\mock_openblas.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\tanis\Documents\TRPO\lab2(cblaslevel3)\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building C object CMakeFiles/cblas_tests.dir/lib/mock_openblas.c.obj"
+	C:\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/cblas_tests.dir/lib/mock_openblas.c.obj -MF CMakeFiles\cblas_tests.dir\lib\mock_openblas.c.obj.d -o CMakeFiles\cblas_tests.dir\lib\mock_openblas.c.obj -c C:\Users\tanis\Documents\TRPO\lab2(cblaslevel3)\lib\mock_openblas.c
 
 CMakeFiles/cblas_tests.dir/lib/mock_openblas.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/cblas_tests.dir/lib/mock_openblas.c.i"
-	C:\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E C:\Users\tanis\Documents\cblas_level3_tests\lib\mock_openblas.c > CMakeFiles\cblas_tests.dir\lib\mock_openblas.c.i
+	C:\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E C:\Users\tanis\Documents\TRPO\lab2(cblaslevel3)\lib\mock_openblas.c > CMakeFiles\cblas_tests.dir\lib\mock_openblas.c.i
 
 CMakeFiles/cblas_tests.dir/lib/mock_openblas.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/cblas_tests.dir/lib/mock_openblas.c.s"
-	C:\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\Users\tanis\Documents\cblas_level3_tests\lib\mock_openblas.c -o CMakeFiles\cblas_tests.dir\lib\mock_openblas.c.s
+	C:\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\Users\tanis\Documents\TRPO\lab2(cblaslevel3)\lib\mock_openblas.c -o CMakeFiles\cblas_tests.dir\lib\mock_openblas.c.s
 
 # Object files for target cblas_tests
 cblas_tests_OBJECTS = \
@@ -200,7 +200,7 @@ cblas_tests.exe: CMakeFiles/cblas_tests.dir/build.make
 cblas_tests.exe: CMakeFiles/cblas_tests.dir/linkLibs.rsp
 cblas_tests.exe: CMakeFiles/cblas_tests.dir/objects1.rsp
 cblas_tests.exe: CMakeFiles/cblas_tests.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=C:\Users\tanis\Documents\cblas_level3_tests\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Linking C executable cblas_tests.exe"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=C:\Users\tanis\Documents\TRPO\lab2(cblaslevel3)\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Linking C executable cblas_tests.exe"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles\cblas_tests.dir\link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -212,6 +212,6 @@ CMakeFiles/cblas_tests.dir/clean:
 .PHONY : CMakeFiles/cblas_tests.dir/clean
 
 CMakeFiles/cblas_tests.dir/depend:
-	$(CMAKE_COMMAND) -E cmake_depends "MinGW Makefiles" C:\Users\tanis\Documents\cblas_level3_tests C:\Users\tanis\Documents\cblas_level3_tests C:\Users\tanis\Documents\cblas_level3_tests\build C:\Users\tanis\Documents\cblas_level3_tests\build C:\Users\tanis\Documents\cblas_level3_tests\build\CMakeFiles\cblas_tests.dir\DependInfo.cmake "--color=$(COLOR)"
+	$(CMAKE_COMMAND) -E cmake_depends "MinGW Makefiles" C:\Users\tanis\Documents\TRPO\lab2(cblaslevel3) C:\Users\tanis\Documents\TRPO\lab2(cblaslevel3) C:\Users\tanis\Documents\TRPO\lab2(cblaslevel3)\build C:\Users\tanis\Documents\TRPO\lab2(cblaslevel3)\build C:\Users\tanis\Documents\TRPO\lab2(cblaslevel3)\build\CMakeFiles\cblas_tests.dir\DependInfo.cmake "--color=$(COLOR)"
 .PHONY : CMakeFiles/cblas_tests.dir/depend
 

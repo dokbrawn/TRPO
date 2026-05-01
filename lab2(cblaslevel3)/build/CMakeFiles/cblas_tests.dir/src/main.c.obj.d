@@ -1,5 +1,5 @@
 CMakeFiles/cblas_tests.dir/src/main.c.obj: \
- C:\Users\tanis\Documents\cblas_level3_tests\src\main.c \
+ C:\Users\tanis\Documents\TRPO\lab2(cblaslevel3)\src\main.c \
  C:/mingw64/x86_64-w64-mingw32/include/stdio.h \
  C:/mingw64/x86_64-w64-mingw32/include/corecrt_stdio_config.h \
  C:/mingw64/x86_64-w64-mingw32/include/corecrt.h \
@@ -21,7 +21,7 @@ CMakeFiles/cblas_tests.dir/src/main.c.obj: \
  C:/mingw64/x86_64-w64-mingw32/include/malloc.h \
  C:/mingw64/lib/gcc/x86_64-w64-mingw32/15.2.0/include/mm_malloc.h \
  C:/mingw64/x86_64-w64-mingw32/include/errno.h \
- C:/Users/tanis/Documents/cblas_level3_tests/include/test_utils.h \
+ C:/Users/tanis/Documents/TRPO/lab2(cblaslevel3)/include/test_utils.h \
  C:/mingw64/x86_64-w64-mingw32/include/string.h \
  C:/mingw64/x86_64-w64-mingw32/include/sec_api/string_s.h \
  C:/mingw64/x86_64-w64-mingw32/include/math.h C:/OpenBLAS/include/cblas.h \

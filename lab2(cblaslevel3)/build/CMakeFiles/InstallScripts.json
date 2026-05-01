@@ -1,7 +1,7 @@
 {
 	"InstallScripts" : 
 	[
-		"C:/Users/tanis/Documents/cblas_level3_tests/build/cmake_install.cmake"
+		"C:/Users/tanis/Documents/TRPO/lab2(cblaslevel3)/build/cmake_install.cmake"
 	],
 	"Parallel" : false
 }

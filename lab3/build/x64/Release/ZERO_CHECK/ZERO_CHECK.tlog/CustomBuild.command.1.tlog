@@ -1,0 +1,10 @@
+^C:\USERS\TANIS\DOCUMENTS\TRPO\LAB3\BUILD\CMAKEFILES\0B6F30C42454D3A424778B433BCD6B0E\GENERATE.STAMP.RULE
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/tanis/Documents/TRPO/lab3 -BC:/Users/tanis/Documents/TRPO/lab3/build --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file C:/Users/tanis/Documents/TRPO/lab3/build/SYRC_Lab3.slnx
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
