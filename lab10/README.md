@@ -31,7 +31,7 @@ cd psweb
 Команда `git clone` загружает исходный код веб-приложения, написанного на Node.js и Express. Это готовый пример из книги Nigel Poulton "Docker Deep Dive".
 
 **Скриншот 1:** Клонирование репозитория psweb  
-![Клонирование репозитория psweb](screenshots/01-git-clone.png)
+![Клонирование репозитория psweb](screenshots/git-clone.png)
 
 ### 1.2 Сборка Docker-образа
 
@@ -48,7 +48,7 @@ docker build -t example:latest .
 Docker последовательно выполняет все инструкции из `Dockerfile` (FROM, RUN, COPY, WORKDIR, CMD и т.д.), создавая слои образа. Каждый слой кэшируется, что ускоряет последующие сборки.
 
 **Скриншот 2:** Процесс сборки Docker-образа `example:latest`  
-![Сборка образа example:latest](screenshots/02-docker-build.png)
+![Сборка образа example:latest](screenshots/docker-build.png)
 
 ### 1.3 Просмотр созданных образов
 
@@ -57,7 +57,7 @@ docker images
 ```
 
 **Скриншот 3:** Список всех Docker-образов (виден `example:latest`)  
-![Просмотр Docker images](screenshots/03-docker-images.png)
+![Просмотр Docker images](screenshots/docker-images.png)
 
 ---
 
@@ -77,7 +77,7 @@ docker run -d --name web -p 8081:8080 example:latest
 - `example:latest` — имя образа, из которого создаётся контейнер
 
 **Скриншот 4:** Запуск контейнера `web`  
-![Запуск контейнера web](screenshots/04-docker-run.png)
+![Запуск контейнера web](screenshots/docker-run.png)
 
 ### 2.2 Просмотр запущенных контейнеров
 
@@ -89,14 +89,14 @@ docker ps
 Команда показывает только **активные** (работающие) контейнеры. Вывод включает ID, имя, образ, статус, порты и время работы.
 
 **Скриншот 5:** Список активных контейнеров  
-![docker ps — активные контейнеры](screenshots/05-docker-ps.png)
+![docker ps — активные контейнеры](screenshots/docker-ps.png)
 
 ### 2.3 Проверка работы приложения в браузере
 
 Переходим по адресу: **http://localhost:8081**
 
 **Скриншот 6:** Работающее Node.js веб-приложение  
-![Веб-приложение в браузере](screenshots/06-web-app.png)
+![Веб-приложение в браузере](screenshots/web-app.png)
 
 ### 2.4 Остановка и удаление ресурсов
 
@@ -107,7 +107,7 @@ docker rmi example:latest # удаление образа
 ```
 
 **Скриншот 7:** Очистка ресурсов (остановка и удаление)  
-![Очистка ресурсов — пример](screenshots/07-cleanup.png)
+![Очистка ресурсов — пример](screenshots/cleanup.png)
 
 ---
 
@@ -122,12 +122,12 @@ cd memory-hex
 ```
 
 **Скриншот 8:** Клонирование репозитория memory-hex  
-![Клонирование memory-hex](screenshots/08-git-clone-memory-hex.png)
+![Клонирование memory-hex](screenshots/git-clone-memory-hex.png)
 
 ### 3.2 Просмотр Dockerfile
 
 **Скриншот 9:** Содержимое файла `Dockerfile` для Shiny-приложения  
-![Dockerfile для R Shiny](screenshots/09-dockerfile.png)
+![Dockerfile для R Shiny](screenshots/dockerfile.png)
 
 ### 3.3 Сборка образа Shiny-приложения
 
@@ -142,7 +142,7 @@ docker build -t ggweb:latest .
 - Копирование всех файлов приложения в директорию `/srv/shiny-server/`
 
 **Скриншот 10:** Сборка образа `ggweb:latest`  
-![Сборка ggweb:latest](screenshots/10-docker-build-ggweb.png)
+![Сборка ggweb:latest](screenshots/docker-build-ggweb.png)
 
 ### 3.4 Запуск контейнера с Shiny-приложением
 
@@ -154,7 +154,7 @@ docker run -d --name web2 -p 8082:3838 ggweb:latest
 - `-p 8082:3838` — внешний порт хоста **8082** → внутренний порт Shiny-сервера **3838**
 
 **Скриншот 11:** Запуск контейнера `web2`  
-![Запуск web2](screenshots/11-docker-run-web2.png)
+![Запуск web2](screenshots/docker-run-web2.png)
 
 ### 3.5 Проверка запущенных контейнеров
 
@@ -163,14 +163,14 @@ docker ps
 ```
 
 **Скриншот 12:** Активные контейнеры (виден `web2`)  
-![docker ps с web2](screenshots/12-docker-ps-web2.png)
+![docker ps с web2](screenshots/docker-ps-web2.png)
 
 ### 3.6 Проверка работы Shiny-приложения
 
 Открываем в браузере: **http://localhost:8082**
 
 **Скриншот 13:** Работающая игра «Hex Memory Game»  
-![Hex Memory Game — Shiny приложение](screenshots/13-shiny-app.png)
+![Hex Memory Game — Shiny приложение](screenshots/shiny-app.png)
 
 ### 3.7 Финальная очистка ресурсов
 
@@ -181,7 +181,7 @@ docker rmi ggweb:latest
 ```
 
 **Скриншот 14:** Очистка ресурсов Shiny-приложения  
-![Очистка ggweb](screenshots/14-cleanup-web2.png)
+![Очистка ggweb](screenshots/cleanup-web2.png)
 
 ---
 
