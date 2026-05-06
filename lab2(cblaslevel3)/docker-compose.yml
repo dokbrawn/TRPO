@@ -1,0 +1,9 @@
+version: '3.8'
+
+services:
+  syrk-blas:
+    build: .
+    container_name: syrk-blas-test
+    volumes:
+      - ./build:/app/build
+      - ./results:/app/results

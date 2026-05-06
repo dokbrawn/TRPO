@@ -1,0 +1,1 @@
+/usr/bin/cc -O3 -DNDEBUG CMakeFiles/benchmark_syrk.dir/src/benchmark_syrk.c.o -o benchmark_syrk  libsyrk_lib.a -ldl -lm 

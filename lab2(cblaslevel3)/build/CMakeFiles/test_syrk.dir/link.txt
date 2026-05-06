@@ -1,0 +1,1 @@
+/usr/bin/cc -O3 -DNDEBUG CMakeFiles/test_syrk.dir/src/test_syrk.c.o -o test_syrk  libsyrk_lib.a -lm 

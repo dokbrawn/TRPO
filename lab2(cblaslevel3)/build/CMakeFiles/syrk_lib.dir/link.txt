@@ -1,0 +1,2 @@
+/usr/bin/ar qc libsyrk_lib.a CMakeFiles/syrk_lib.dir/src/syrk.c.o
+/usr/bin/ranlib libsyrk_lib.a
